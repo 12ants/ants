@@ -29,9 +29,7 @@ alias qw="fortune|lolcat -a& disown;"
 ##
 ##
 alias rainbow='echo;echo;echo; tput cuu 2; read -ep "$c2 " "rainbow"; rb "$rainbow";'
-alias cds='
-
-psp read -ep "$c2 "$rev"goto:$re " -i "$PWD/" "goto"; 
+alias cc='psp read -ep "$c2 "$rev"goto:$re " -i "$PWD/" "goto"; 
 mkdir -p $folder -m 775; 
 #chown "$SUDO_USER":"$USER" "$goto"; 
 cd $goto; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -caklhuptr --group-directories-first;'
@@ -133,6 +131,5 @@ psp read -ep "$c2 CLONE: https://github.com/12ants/" -i "" "clone";
 git clone https://github.com/12ants/$clone; cd $clone 2>/dev/null; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -a; echo;echo; '
 alias ww='ee;ee "$cyan";w;ee;ee "$blue"; ps all;ee "$re $PWD"'
 alias rb='sudo wall "gg"; sleep 1; sudo systemctl reboot'
-alias gt='read -n1 -ep "  $c2  g/t  $(systemctl get-default)  " "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
+alias gt='read -n1 -ep "  $c2  graphical boot/terminal boot?...  currently: $pink $(systemctl get-default) $re [g/t]" "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
 alias xxxx='startx'
-alias cc=cds
