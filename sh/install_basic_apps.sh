@@ -16,6 +16,7 @@ neofetch \
 tlp \
 btop \
 curl \
+fortune-mod \
 lolcat \
 googler \
 2>/dev/null ;
