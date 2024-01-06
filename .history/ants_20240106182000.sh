@@ -49,18 +49,14 @@ git clone https://github.com/12ants/ants
 cd ants 
 read -n1 -ep "$ll""$c2"" New ants install script? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; exit 0; else echo "$ll$c2 OK"; fi ;
-tput dim;
 sudo cp sh/aaaa.sh /etc/aaaa.sh -bv
 sudo cp sh/bbbb.sh /etc/bbbb.sh -bv
 sudo cp sh/cccc.sh /etc/cccc.sh -bv
-sudo cp sh/profileetc.sh /etc/profile -bv
-sudo cp sh/bash.sh /etc/bash.bashrc -bv
-sudo cp sh/ssss.sh /bin/ssss -bv
-echo; sleep 1
+sleep 2
 chown $SUDO_USER: /etc/*.sh -v
 chmod 755 /etc/*.sh -v
-sleep 1; tput sgr0
-echo -e "\n$ll $c2 Bash is now better!\n"  
+sleep 2
+echo -e "$ll $c2 bash is now better!"
 
 
 

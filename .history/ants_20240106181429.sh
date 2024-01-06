@@ -10,7 +10,7 @@ echo hello
 #
 #
 echo -e "\n\n"; ll=$(echo -e " \t\t "); 
-if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try command: [ sudo -s ] \n\n " 1>&2; read -ep "$ll k" "k7"; exit 0 ; fi 
+if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try command: [ sudo -s ] \n\n " 1>&2; read -ep "$ll k" "k7"; bash ; fi 
 ## Autorestart as needed
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf; 
 ## - Auto root login for admins
@@ -29,7 +29,7 @@ redb=$(tput setab 1) greenb=$(tput setab 2) yellowb=$(tput setab 3) blueb=$(tput
 grayb=$(tput setab 7) red=$(tput setaf 1) green=$(tput setaf 2) yellow=$(tput setaf 3) blue=$(tput setaf 4) purple=$(tput setaf 5) \
 cyan=$(tput setaf 6) gray=$(tput setaf 7) white=$(tput setaf 7 bold) pink=$(tput setaf 5 bold) darkblue=$(tput setab 5 bold) blink=$(tput blink) \
 left2=$(tput cub 2) up1=$(tput cuu1) 
-export dddd=$(echo $pink  --------------------------------$re ) c2="$cyan --$re" ll=$(echo -e " \t\t") 2>/dev/null \  
+export dddd=$(echo $pink  --------------------------------$re ) c2="$cyan --$re" ll=$(echo -e "\t\t") \ 
 ##
 ##
 apt update 2>/dev/null; 
@@ -48,19 +48,15 @@ sleep 2
 git clone https://github.com/12ants/ants
 cd ants 
 read -n1 -ep "$ll""$c2"" New ants install script? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
-if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; exit 0; else echo "$ll$c2 OK"; fi ;
-tput dim;
+if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return; else echo "$ll$c2 OK"; fi ;
 sudo cp sh/aaaa.sh /etc/aaaa.sh -bv
 sudo cp sh/bbbb.sh /etc/bbbb.sh -bv
 sudo cp sh/cccc.sh /etc/cccc.sh -bv
-sudo cp sh/profileetc.sh /etc/profile -bv
-sudo cp sh/bash.sh /etc/bash.bashrc -bv
-sudo cp sh/ssss.sh /bin/ssss -bv
-echo; sleep 1
+sleep 2
 chown $SUDO_USER: /etc/*.sh -v
 chmod 755 /etc/*.sh -v
-sleep 1; tput sgr0
-echo -e "\n$ll $c2 Bash is now better!\n"  
+sleep 2
+echo -e "$ll $c2 bash is now better!"
 
 
 

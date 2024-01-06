@@ -55,7 +55,6 @@ sudo cp sh/bbbb.sh /etc/bbbb.sh -bv
 sudo cp sh/cccc.sh /etc/cccc.sh -bv
 sudo cp sh/profileetc.sh /etc/profile -bv
 sudo cp sh/bash.sh /etc/bash.bashrc -bv
-sudo cp sh/ssss.sh /bin/ssss -bv
 echo; sleep 1
 chown $SUDO_USER: /etc/*.sh -v
 chmod 755 /etc/*.sh -v
