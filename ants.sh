@@ -36,7 +36,7 @@ apt update 2>/dev/null;
 apt -y -qq upgrade 2>/dev/null;
 apt apt -qq -y autoremove 2>/dev/null;
 apt apt -qq -y autoclean 2>/dev/null;
-echo tput cup 0; tput ed; echo -e "$(ls -n ./ants.sh 2>/dev/null)\n\n\t$blink ¯\(ツ)/¯$re 
+tput cup 0; tput ed; echo -e "$(ls -n ./ants.sh 2>/dev/null)\n\n\t$blink ¯\(ツ)/¯$re 
 \n\n\n\n\n\n\t\t$dddd\n\t\t Welcome to$cyan 12ants$re bash-improver! \n\t\t$dddd"; 
 ####
 ##
