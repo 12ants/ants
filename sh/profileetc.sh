@@ -23,11 +23,6 @@ if [ -r $i ]; then
 . $i
 fi
 done
-unset *
 fi
-echo;echo "  LAST LOGINS";echo;sudo lastb -axdwn 14;echo;echo "       = = = = = = == ";echo; sudo last -wxdFan14;echo;landscape-sysinfo; echo;echo "    = = = = = =   ";echo;
-source /etc/aaaa.sh
-source /etc/bbbb.sh
-source /etc/cccc.sh
-
-
+unset *
+echo ETCPROFILE

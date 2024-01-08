@@ -57,7 +57,7 @@ sudo cp sh/profileetc.sh /etc/profile -bv
 sudo cp sh/bash.sh /etc/bash.bashrc -bv
 sudo cp sh/ssss.sh /bin/ssss -bv
 echo; sleep 1
-chown $SUDO_USER: /etc/*.sh -v
+chown "$SUDO_USER": /etc/*.sh -v
 chmod 755 /etc/*.sh -v
 sleep 1; tput sgr0
 echo -e "\n$ll $c2 Bash is now better!\n"  
