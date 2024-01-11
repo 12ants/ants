@@ -12,16 +12,16 @@ else
 mv /home/$USER/.bashrc /tmp/ 2>/dev/null;
 mv /home/$USER/.profile /tmp/ 2>/dev/null;
 fi 
-cd $ghh/0000/etc 2>/dev/null;
-cp ../conf/bash.bashrc /etc/ -b 2>/dev/null; 
+cp "./sh/bash.bashrc" /etc/ -b 2>/dev/null;
+chmod 775 /etc/bash.bashrc
 source /etc/bash.bashrc
 own 
 ##
 ##
 
-mv  /etc/skel/.bashrc $ghh/bups0000
-echo "source /etc/bash.bashrc " > /etc/skel/.bashrc
+mv  /etc/skel/.bashrc  /etc/skel/.bashrc_bbbb
+#echo "source /etc/bash.bashrc " > /etc/skel/.bashrc
 ##
 
-echo -e "\n\t Copy new bash file . . . . Done . . . .\n\n"
+#echo -e "\n\t Copy new bash file . . . . Done . . . .\n\n"
 ##

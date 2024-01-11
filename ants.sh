@@ -18,13 +18,13 @@ left2=$(tput cub 2) up1=$(tput cuu1)
 export dddd=$(echo $pink  --------------------------------$re ) c2="$cyan --$re" ll=$(echo -e " \t\t") 2>/dev/null \
 ##
 ants="$_"
-tput cuu 18 ed; echo;echo " $(ls -n $_ 2>/dev/null) ";echo;
+tput cuu 18 ed; echo;echo -e " \n\n\t version: $(ls -n 2>/dev/null) ";echo;
 read -n1 -rep "$ll""$c2"" Update Installer? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; else echo "$ll$c2 OK"; 
 read -rep "$ll""$c2"" To: $re" -i "$PWD$_" "ants"; 
 wget -O "$ants" https://raw.githubusercontent.com/12ants/ants/main/ants.sh;
 bash "$ants"
-return 2>/dev/null
+exit 0
 fi 
 echo GG
 ##
@@ -71,19 +71,20 @@ git clone https://github.com/12ants/ants
 cd ants 
 read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return ; else echo "$ll$c2 OK"; fi ;
+tput cuu 8 ed;
 tput dim;
 sudo cp sh/aaaa.sh /etc/aaaa.sh -bv
 sudo cp sh/bbbb.sh /etc/bbbb.sh -bv
 sudo cp sh/cccc.sh /etc/cccc.sh -bv
-sudo cp sh/profileetc.sh /etc/profile -bv
-sudo cp sh/bash.sh /etc/bash.bashrc -bv
+sudo cp sh/etc_profile.sh /etc/profile -bv
+sudo cp sh/etc_bash.sh /etc/bash.bashrc -bv
 sudo cp sh/ssss.sh /bin/ssss -bv
 echo; sleep 1
 chmod 775 /bin/ssss;
 chown "$SUDO_USER": /etc/*.sh -v
 chmod 755 /etc/*.sh -v
 sleep 1; tput sgr0
-echo -e "\n$ll $c2 Bash is now better!\n"  
+echo -e "\n\n\n\n    $ll $c2$blink Bash is now better!\n\n\n\n\n\n"
 
 
 
