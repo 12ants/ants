@@ -9,7 +9,7 @@ echo hello
 ############# 12ants.github.com
 #
 #
-alias "ee"='echo '
+alias ee="echo "
 export bold=$(tput bold) dim=$(tput dim) so=$(tput smso) noso=$(tput rmso) rev=$(tput rev) re=$(tput sgr0) normal=$(tput sgr0) \
 redb=$(tput setab 1) greenb=$(tput setab 2) yellowb=$(tput setab 3) blueb=$(tput setab 4) purpleb=$(tput setab 5) cyanb=$(tput setab 6) \
 grayb=$(tput setab 7) red=$(tput setaf 1) green=$(tput setaf 2) yellow=$(tput setaf 3) blue=$(tput setaf 4) purple=$(tput setaf 5) \
@@ -18,7 +18,7 @@ left2=$(tput cub 2) up1=$(tput cuu1)
 export dddd=$(echo $pink  --------------------------------$re ) c2="$cyan --$re" ll=$(echo -e " \t\t") 2>/dev/null \  
 ##
 ants="$_"
-tput cuu 18 ed; echo;echo " $(ls -n $_ 2>/dev/null) "; echo ;
+tput cuu 18 ed; echo;echo " $(ls -n ./ants.sh 2>/dev/null) ";echo;
 read -n1 -ep "$ll""$c2"" Update Installer? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; else echo "$ll$c2 OK"; 
 read -ep "$ll""$c2"" To: $re" -i "$PWD" "ants"; 
