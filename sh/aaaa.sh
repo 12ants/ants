@@ -6,13 +6,13 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ll='ls -QahlF'
+alias ll='ls -caklhuptr --group-directories-first'
 alias la='ls -A'
 alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 ##
 ## MOVE AROUND
-alias pppp="tput cuu 8 ed; tput cud 2;"
+alias pppp='tput cuu 8 ed; echo -e "\n\n\n\n\t ";';
 alias psp='echo -e "\n\n\n\n\n\n\n"; tput cuu 4
 '
 # old -- alias psp='echo -e "\n\n\n\n\n\n\n"; tput cuu 4;  '
@@ -30,16 +30,15 @@ alias qw="fortune|lolcat -a& disown;"
 ##
 alias rainbow='echo;echo;echo; tput cuu 2; read -ep "$c2 " "rainbow"; rb "$rainbow";'
 alias cds='
-
-psp read -ep "$c2 "$rev"goto:$re " -i "$PWD/" "goto"; 
+psp read -ep "$c2 "$rev"goto:$re " -i "$PWD" "goto"; 
 mkdir -p $folder -m 775; 
 #chown "$SUDO_USER":"$USER" "$goto"; 
-cd $goto; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -caklhuptr --group-directories-first;'
+cd $goto; echo -e "\n\t $cyan$bold> $pink$PWD$cyan <$re\n\t * * * *\n"; ls -caklhuptr --group-directories-first;'
 alias ff='
-psp read -ep "$c2 "$rev"new folder?$re " -i "$PWD/" "folder"; 
+psp read -ep "$c2 "$rev"new folder?$re " -i "$PWD" "folder"; 
 mkdir -p $folder -m 775; 
 chown "$SUDO_USER":"$USER" "$folder"; 
-cd $folder; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -caklhuptr --group-directories-first;'
+cd $folder; echo -e "\n\t $cyan$bold> $pink$PWD$cyan <$re\n\t * * * *\n"; ls -caklhuptr --group-directories-first;'
 alias oooo="rrf; fortune; tput sgr0;"
 alias rr="sudo -s"
 alias besh="micro /etc/bbbb.sh"
@@ -72,7 +71,7 @@ alias aa="apropos"
 # vv='curl -sm2 http://wttr.in/sthlm?format=%l:+%c+%f'
 alias vvvv='curl http://wttr.in/stockholm; '
 alias vv='tput sc; 
-tput cup 4 $((COLUMNS - 28)) setab $((RANDOM%222)) el; 
+tput cup 4 $((COLUMNS - 28)) setab $((RANDOM%22 + 111)) el; 
 tput cup 5 $((COLUMNS - 28)) el; tput cuf 2; 
 curl -sm2 http://wttr.in/sthlm?format=%l:+%c+%t+/+%f++; 
 tput cup 6 $((COLUMNS - 28)) el; tput sgr0 rc;'
@@ -96,20 +95,6 @@ echo " $(rrf)  ------$(tput setaf 2) Public IP: $(tput sgr0)$(ippub)$(tput setaf
 echo " $(tput setaf $(rr2))  ---------------------------------- " ;
 echo " $(rrf)  ------$(tput setaf 4) Network IP: $(tput sgr0)$(ipnet)$(tput sgr0)"; echo;'
 ############################################"
-own()
-{ read -ep "$c2 $USER:own $HOME? "  "kk";
-if [ $UID == 0 ]; 
-then chown $SUDO_USER: /home/$SUDO_USER -R; 
-chmod +rw /home/$SUDO_USER -R; 
-chown $SUDO_USER /etc/*.sh -Rc; 
-chown $SUDO_USER /ants -Rc; 
-else 
-sudo chown $USER: ~ -Rc;
-sudo chown $USER /ants -Rc; 
-sudo chmod -u+rwx $HOME -Rc; ls -aplhtr --group-directories-first --hyperlink=always --color=always & 
-# sudo chmod +rw $HOME -Rc;
-sudo chmod +rw /etc/*.sh -Rc; 
-fi }
 ##
 # alias ali='psp read -ep "$c2 " -i "alias " "ali"; echo "$ali" >> /etc/aaaa.sh; echo -e "\n $ali \n " '
 # alias ali='psp read -ep "$c2 " -i "ali " "ali";
@@ -131,8 +116,10 @@ chown "$SUDO_USER":"$USER" "$folder"; cd $folder; echo -e "\n\t $cyan$bold> $pin
 ####
 psp read -ep "$c2 CLONE: https://github.com/12ants/" -i "" "clone"; 
 git clone https://github.com/12ants/$clone; cd $clone 2>/dev/null; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -a; echo;echo; '
-alias ww='ee;ee "$cyan";w;ee;ee "$blue"; ps all;ee "$re $PWD"'
+# alias ww='ee;ee "$cyan";w;ee;ee "$blue"; ps all;ee "$re $PWD"'
+alias ww='echo;echo "  LAST LOGINS";echo;sudo lastb -axdwn 14;echo;echo "       = = = = = = == ";echo; sudo last -wxdFan14;echo;landscape-sysinfo; echo;echo "    = = = = = =   ";echo;'
 alias rb='sudo wall "gg"; sleep 1; sudo systemctl reboot'
 alias gt='read -n1 -ep "  $c2  g/t  $(systemctl get-default)  " "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
 alias xxxx='startx'
 alias cc=cds
+echo aaaa

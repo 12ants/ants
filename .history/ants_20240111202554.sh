@@ -69,8 +69,8 @@ cd ..
 sleep 1
 git clone https://github.com/12ants/ants
 cd ants 
-read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
-if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return ; else echo "$ll$c2 OK"; fi ;
+read -n1 -ep "$ll""$c2"" New ants install script? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
+if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; exit 0; else echo "$ll$c2 OK"; fi ;
 tput dim;
 sudo cp sh/aaaa.sh /etc/aaaa.sh -bv
 sudo cp sh/bbbb.sh /etc/bbbb.sh -bv

@@ -1,6 +1,6 @@
 #!/bin/bash
 ##
-## /etc/bash.bashrc
+## . /etc/balias.sh
 ##
 ##
 if [ $UID == 0 ]; then 
