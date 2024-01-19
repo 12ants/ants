@@ -12,7 +12,9 @@ gpm \
 links2 \
 ranger \
 mc \
+pv \
 neofetch \
+fortune-mod \
 tlp \
 btop \
 curl \
@@ -25,7 +27,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 echo "$ll$c2 OK"
-# snap install lolcat;
+snap install lolcat;
+ln /usr/games/fortune /bin/
+echo gg
 ##
 ##
 ##
