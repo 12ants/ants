@@ -14,6 +14,7 @@ links2 \
 ranger \
 mc \
 gh \
+pv \
 neofetch \
 tlp \
 btop \
