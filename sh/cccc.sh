@@ -93,3 +93,15 @@ sudo chmod -u+rwx $HOME -Rc; ls -aplhtr --group-directories-first --hyperlink=al
 # sudo chmod +rw $HOME -Rc;
 sudo chmod +rw /etc/*.sh -Rc; 
 fi }
+
+
+###################################
+###################################
+#########  -- WOTD --  ############
+###################################
+###################################
+
+wotd() {
+RANDOMWORD=($(cat /usr/share/dict/words))
+echo ${RANDOMWORD[$((RANDOM%${#RANDOMWORD[@]}))]}
+}
