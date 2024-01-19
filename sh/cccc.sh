@@ -105,3 +105,18 @@ wotd() {
 RANDOMWORD=($(cat /usr/share/dict/words))
 echo ${RANDOMWORD[$((RANDOM%${#RANDOMWORD[@]}))]}
 }
+
+###################################
+###################################
+#########  -- logi --  ############
+###################################
+###################################
+
+loginscreen() {
+sudo systemctl enable multi-user.target 2>/dev/null;
+pppp read -n1 -ep "$c2 Choose default login mode: [G]/[T]" lsls
+if [ $lsls == g ]; then 
+sudo systemctl set-default graphical.target
+else sudo systemctl set-default multi-user.target
+fi
+}
