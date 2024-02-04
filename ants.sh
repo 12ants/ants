@@ -71,7 +71,7 @@ tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re ";
 #
 # Welcome to ...
 #
-echo -e "\n\n\n\n\n\n\t\t$dddd\n\t\t   Welcome to$cyan 12ants$re bash-improver! \n\t\t$dddd"; 
+echo -e "\n\n\n\n\n\n\t\t$dddd\n\t\t  Welcome to$cyan 12ants$re bash-improver! \n\t\t$dddd"; 
 ####
 ###
 ###
