@@ -74,7 +74,7 @@ tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re ";
 echo -e "\n\n\n\n\n\n\t\t$dddd\n\t\t  Welcome to$cyan 12ants$re bash-improver! \n\t\t$dddd"; 
 ####
 ###
-###
+###       USE FUNCTION ONLY ONCE!!!!
 ##
 ## Do you wish to proceed?
 ##
