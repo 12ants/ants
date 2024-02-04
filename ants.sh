@@ -63,7 +63,7 @@ echo -e "\n\n\n\n\n\n\t\t$dddd\n \t\t   Welcome to$cyan 12ants$re bash-improver!
 ##
 ## Do you wish to proceed?
 ##
-read -n1 -ep "$ll" "$c2"" Do you wish to proceed? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
+read -n1 -ep "$ll ""$c2"" Do you wish to proceed? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope";exit 1; else echo "$ll$c2 OK"; fi ;
 ##
 read -ep "$ll""$c2"" Folder for Github? $re" -i "$PWD/gh" "gh"; 
