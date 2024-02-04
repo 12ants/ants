@@ -39,16 +39,20 @@ echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ants;
 # snap install lolcat &>/dev/null & disown; tput cuu 2; tput ed
 # apt update|lolcat -F .01 -s 111 -p 11 -d 22; apt upgrade -y --install-recommends|lolcat -F .001 -s 111 -p 11 -d 22;
 ##
-## ADDING COLOR-CODES -- (Need to run inside other command.)
-# apt install -y git needrestart &>/dev/null & disown; tput cuu 2; tput ed ###### pu back
-## 
+pro='apt update';
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro;
+sleep 1;
 ##
 ##
-tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re """;
-##
-pro='apt update'
-##
-##
+pro='apt upgrade -y';
 pro() {
 $pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
 PROC_ID=$!
@@ -59,39 +63,11 @@ echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
 }
 ##
 ##
-pro
-
-pro='apt upgrade -y'
+pro;
+sleep 1;
 ##
 ##
-pro() {
-$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
-PROC_ID=$!
-while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
-"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
-do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
-echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
-}
-##
-##
-pro
-
-pro='apt autoremove -y'
-##
-##
-pro() {
-$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
-PROC_ID=$!
-while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
-"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
-do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
-echo -ne "\t\t    PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
-}
-##
-##
-pro
-
-tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re """;
+tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re ";
 #
 # Welcome to ...
 #
@@ -142,7 +118,6 @@ pro
 cd ..
 ##
 sleep 1
-
 ####
 ## LOAD ANIMATION
 pro='git clone https://github.com/12ants/ants'
@@ -172,11 +147,50 @@ sudo cp sh/etc_profile.sh /etc/profile -bv
 sudo cp sh/etc_bash.sh /etc/bash.bashrc -bv
 sudo cp sh/ssss.sh /bin/ssss -bv
 echo; sleep 1
-chmod 775 /bin/ssss;
-chown "$SUDO_USER": /etc/*.sh -v
-chmod 755 /etc/*.sh -v
- fi ;
-sleep 1; tput sgr0
+##
+pro='chmod 775 /bin/ssss';
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro;
+sleep 1;
+##
+##
+##
+pro='chown "$SUDO_USER": /etc/*.sh';
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro;
+sleep 1;
+##
+##
+##
+pro='chmod 755 /etc/*.sh -v';
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro;
+sleep 1;
+##
+##
+fi;
+sleep 1; tput sgr0; 
 echo -e "\n\n\n\n    $ll $c2$blink Bash is now better!\n\n\n\n\n\n"
 
 
