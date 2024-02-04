@@ -183,7 +183,7 @@ PROC_ID=$!
 while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
 "[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
 do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
-echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+echo -ne "\t\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
 }
 pro;
 sleep 1;
