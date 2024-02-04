@@ -44,10 +44,19 @@ echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ants;
 ## 
 ##
 ##
+tput cup 0; tput ed; echo -e "\n\n\t$blink $pink ¯\(ツ)/¯$re """;
+foo='
 apt update -qq 2>/dev/null; 
 apt -qqy upgrade 2>/dev/null;
 apt apt -qqy autoremove 2>/dev/null;
-apt apt -qqy autoclean 2>/dev/null;
+apt apt -qqy autoclean 2>/dev/null;'
+source ./sh/load.sh
+# Run BLA::stop_loading_animation if the script is interrupted
+trap BLA::stop_loading_animation SIGINT
+# Show a loading animation for the command "foo"
+BLA::start_loading_animation "${BLA_name_of_the_animation[@]}"
+$foo 1> /dev/null
+BLA::stop_loading_animation
 tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re """;
 #
 # Welcome to ...
