@@ -1,5 +1,5 @@
 #!/bin/bash
-BLA_metro=( 0.2 '[    ]' '[$green=$re   ]' '[$green==$re  ]' '[$green===$re ]' '[ $green===$re]' '[  $green==$re]' '[   $green=$re]' '[    ]' '[    ]' '[    ]' '[    ]'  )
+BLA_metro=( 0.2 '[    ]' '[$green=$re   ]' '[$green==$re  ]' '[$green===$re ]' '[ $green===$re]' '[  $green==$re]' '[   $green=$re]' '[    ]' '[    ]' '[    ]' '[    ]')
 
 declare -a BLA_active_loading_animation
 BLA::play_loading_animation_loop() {
@@ -33,7 +33,7 @@ BLA::stop_loading_animation() {
 ################### show loading animations in your script. ###################
 ###############################################################################
 
-#:<<'EXAMPLES'
+:<<'EXAMPLES'
 
 ## Put these lines at the top of your script:
 ## (replace /path/to/bash_loading_animations.sh with the appropriate filepath)
@@ -43,7 +43,7 @@ source ./load.sh
 trap BLA::stop_loading_animation SIGINT
 # Show a loading animation for the command "foo"
 BLA::start_loading_animation "${BLA_name_of_the_animation[@]}"
-$foo 1> /dev/null
+$foo
 BLA::stop_loading_animation
 # If foo prints some output in the terminal, you may want to add:
 #foo 1> /dev/null # hide standard output
@@ -52,4 +52,4 @@ BLA::stop_loading_animation
 # or
 #foo &> /dev/null # hide all output
 
-#EXAMPLES
+EXAMPLES
