@@ -80,7 +80,7 @@ sleep 1
 git clone https://github.com/12ants/ants 2>/dev/null;
 cd ants 
 read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
-if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return ; else echo "$ll$c2 OK"; fi ;
+if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return ; else echo "$ll$c2 OK";
 tput cuu 8 ed;
 tput dim;
 sudo cp sh/aaaa.sh /etc/aaaa.sh -bv
@@ -93,6 +93,7 @@ echo; sleep 1
 chmod 775 /bin/ssss;
 chown "$SUDO_USER": /etc/*.sh -v
 chmod 755 /etc/*.sh -v
+ fi ;
 sleep 1; tput sgr0
 echo -e "\n\n\n\n    $ll $c2$blink Bash is now better!\n\n\n\n\n\n"
 
