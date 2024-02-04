@@ -44,14 +44,53 @@ echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ants;
 ## 
 ##
 ##
-foo="apt update -qq 2>/dev/null; apt -qqy upgrade 2>/dev/null; apt apt -qqy autoremove 2>/dev/null; apt apt -qqy autoclean 2>/dev/null; "
-source ./sh/load.sh
-# Run BLA::stop_loading_animation if the script is interrupted
-trap BLA::stop_loading_animation SIGINT
-# Show a loading animation for the command "foo"
-BLA::start_loading_animation "${BLA_name_of_the_animation[@]}"
-$foo 1> /dev/null
-BLA::stop_loading_animation
+tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re """;
+##
+pro='apt update'
+##
+##
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+##
+##
+pro
+
+pro='apt upgrade -y'
+##
+##
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+##
+##
+pro
+
+pro='apt autoremove -y'
+##
+##
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t    PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+##
+##
+pro
+
 tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re """;
 #
 # Welcome to ...
@@ -72,12 +111,55 @@ chown $SUDO_USER: $gh
 cd $gh
 mkdir ants -p -m 775
 cd ants
-git stash 2>/dev/null;
-git pull 2>/dev/null;
+##
+## LOAD ANIMATION
+pro='git stash'
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro
+##
+####
+## LOAD ANIMATION
+pro='git pull'
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro
+##
+##
+
 cd ..
 ##
 sleep 1
-git clone https://github.com/12ants/ants 2>/dev/null;
+
+####
+## LOAD ANIMATION
+pro='git clone https://github.com/12ants/ants'
+pro() {
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2;
+PROC_ID=$!
+while kill -0 "$PROC_ID"&>/dev/null; do for X in "[      ]" "[$green=$re     ]" "[$green==$re    ]" "[$green===$re   ]" "[   $green===$re]" \
+"[    $green==$re]" "[     $green=$re]" "[      ]" "[      ]" "[      ]" "[      ]"; 
+do echo -e "\t $X$c2  $pro"; tput cuu1; sleep 0.08; done; done 
+echo -ne "\t\t PROCESS ["$green"DONE"$re"]    \t\n\n\n\n\n";
+}
+pro
+##
+##
+
+
+
 cd ants 
 read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return ; else echo "$ll$c2 OK";
