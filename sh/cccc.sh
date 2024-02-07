@@ -27,7 +27,6 @@ echo -e "\n\t $cyanb login-users: $re$gray";
 sudo last -an8
 echo -e "\n$re";
 }
-echo cccc
 timer() {
 #!/bin/bash
 GREEN='\033[0;32m'
@@ -66,8 +65,6 @@ done
 echo -e "${RESET}"
 tput cnorm
 }
-
-
 db_new() {
 #!/bin/bash
 ## new_db
@@ -78,7 +75,6 @@ echo -e "\n $cyan $d1 $re \n\n";
 ##
 ##
 }
-
 own()
 { read -rep "$c2 $USER:own $HOME? "  "kk";
 if [ $UID == 0 ]; 
@@ -120,3 +116,4 @@ sudo systemctl set-default graphical.target
 else sudo systemctl set-default multi-user.target
 fi
 }
+tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/cccc"; tput rc;

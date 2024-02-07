@@ -122,4 +122,4 @@ alias rb='sudo wall "gg"; sleep 1; sudo systemctl reboot'
 alias gt='read -n1 -ep "  $c2  g/t  $(systemctl get-default)  " "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
 alias xxxx='startx'
 alias cc=cds
-echo aaaa
+tput sc; tput cup 3 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/aaaa"; tput rc;

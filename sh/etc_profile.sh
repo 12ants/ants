@@ -23,6 +23,7 @@
 #. $i
 #fi
 #done
+tput sc; tput cup 1 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/profile"; tput rc;
 unset *
 echo profile
 source /etc/bash.bashrc

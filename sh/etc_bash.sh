@@ -90,3 +90,4 @@ then wget -O ants.sh dub.sh/ants12; bash ants.sh;
 else echo gg; 
 fi; 
 fi;
+tput sc; tput cup 2 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/bash.bashrc"; tput rc;
