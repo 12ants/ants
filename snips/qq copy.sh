@@ -113,5 +113,5 @@ for i in "${!SELECTED[@]}"; do
 	fi
 done
 
-echo "${CHECKED[@]}"
+echo "bash  ${CHECKED[@]}"
 export "${CHECKED[@]=y}"
