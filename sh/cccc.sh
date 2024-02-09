@@ -2,20 +2,24 @@
 ###########
 ## cccc.sh _ functions for bash shell
 ###########
+###########
+## coolors - display available colors
 coolors() {
 #!/bin/bash
 for ((i=0; i<256; i++)) ;do
-    echo -n '  '
-    tput setab $i
-    tput setaf $(( ( (i>231&&i<244 ) || ( (i<17)&& (i%8<2)) ||
-        (i>16&&i<232)&& ((i-16)%6 <(i<100?3:2) ) && ((i-16)%36<15) )?7:16))
-    printf " C %03d " $i
-    tput op
-    (( ((i<16||i>231) && ((i+1)%8==0)) || ((i>16&&i<232)&& ((i-15)%6==0)) )) &&
-        printf " " ''
+echo -n '  '
+tput setab $i
+tput setaf $(( ( (i>231&&i<244 ) || ( (i<17)&& (i%8<2)) ||
+(i>16&&i<232)&& ((i-16)%6 <(i<100?3:2) ) && ((i-16)%36<15) )?7:16))
+printf " C %03d " $i
+tput op
+(( ((i<16||i>231) && ((i+1)%8==0)) || ((i>16&&i<232)&& ((i-15)%6==0)) )) &&
+printf " " ''
 done
 echo;echo;
 }
+###########
+## sup - show basic info
 sup() {
 echo -e "\n\t $redb running: $re$gray";
 sudo w -o;
@@ -27,6 +31,8 @@ echo -e "\n\t $cyanb login-users: $re$gray";
 sudo last -an8
 echo -e "\n$re";
 }
+###########
+## timer - countdown
 timer() {
 #!/bin/bash
 GREEN='\033[0;32m'
@@ -65,6 +71,8 @@ done
 echo -e "${RESET}"
 tput cnorm
 }
+###########
+## db_new - create new mysql database
 db_new() {
 #!/bin/bash
 ## new_db
@@ -75,6 +83,8 @@ echo -e "\n $cyan $d1 $re \n\n";
 ##
 ##
 }
+###########
+## own - retain ownership in home directory
 own()
 { read -rep "$c2 $USER:own $HOME? "  "kk";
 if [ $UID == 0 ]; 
@@ -90,24 +100,15 @@ sudo chmod -u+rwx $HOME -Rc; ls -aplhtr --group-directories-first --hyperlink=al
 sudo chmod +rw /etc/*.sh -Rc; 
 fi }
 
-
-###################################
-###################################
-#########  -- WOTD --  ############
-###################################
-###################################
-
+###########
+## wotd - word of the day
 wotd() {
 RANDOMWORD=($(cat /usr/share/dict/words))
 echo ${RANDOMWORD[$((RANDOM%${#RANDOMWORD[@]}))]}
 }
 
-###################################
-###################################
-#########  -- logi --  ############
-###################################
-###################################
-
+###########
+## loginscreen - change default login screen
 loginscreen() {
 sudo systemctl enable multi-user.target 2>/dev/null;
 pppp read -n1 -ep "$c2 Choose default login mode: [G]/[T]" lsls
@@ -116,4 +117,18 @@ sudo systemctl set-default graphical.target
 else sudo systemctl set-default multi-user.target
 fi
 }
+###########
+## pro - task loaading animation
+pro() {
+alias tf='tput setaf $((RANDOM%16));'
+alias tb='tput setab $((RANDOM%16));'
+c2="$cyan --$re"; tput civis;
+$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2; PROC_ID=$!; while kill -0 "$PROC_ID"&>/dev/null; 
+do for X in "[        ]" "[$(tf)=$re       ]" "[$(tf)==$re      ]" "[$(tf)===$re     ]" "[$(tf)====    $re]"  "[ $(tf)====   $re]" \
+"[  $(tf)====$re  ]" "[   $(tf)==== $re]" "[    $(tf)====$re]" "[     "$(tf)"===$re]" "[      "$(tf)"=="$re"]" "[       =]" "[        ]" "[        ]" "[        ]"; 
+do echo -e "  [$(tb)  $re]$c2 Executing $rev $pro $re"$c2" $X"; tput cuu1; sleep 0.08; done; done;
+echo -e "\t\t\t\t\t\t [  "$green"DONE"$re"  ] \n\n\n\n\n"; tput cnorm;
+}
+###########
+## show loaded state
 tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/cccc"; tput rc;

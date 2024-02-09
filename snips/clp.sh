@@ -18,4 +18,3 @@ else echo "    $c2 No, "$dim"["$green" OK "$re$dim"]"; cd $inst; fi;
 ####
 #### Cred: 12ants.com
 ####
-
