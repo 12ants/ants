@@ -94,7 +94,7 @@ function prompt_for_multiselect {
     cursor_blink_on
 
     eval $retval='("${selected[@]}")'
-}
+} 
 
 # Usage Example
 

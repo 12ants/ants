@@ -12,6 +12,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 ##
 ## MOVE AROUND
+alias ants12='bash <(wget -O- dub.sh/ants12)'
 alias pppp='tput cuu 8 ed; echo -e "\n\n\n\n\t ";';
 alias psp='echo -e "\n\n\n\n\n\n\n"; tput cuu 4
 '
@@ -55,14 +56,15 @@ alias kf='guf=$(gum file);echo -e "\n\n\n\n\n"; tput cuu 2; read -ep "$c2 title:
 
 ############################################
 #### SSH ###################################
-export sl="2.2.2.2" slu="aaaa"; 
+export sl="ants.hopto.org" slu="aa"; 
 alias sl='read -ep "$c2 ssh: " -i "$sl" sl; read -ep "$c2 user: " -i "$slu" slu;  ssh $sl -l $slu'
 ############################################
 #### ANTS ##################################
 alias aaaa='sudo micro /etc/aaaa.sh && read -t2 -n1 -ep "update aaaa.sh? " ab && source /etc/aaaa.sh'
 alias bbbb='sudo micro /etc/bbbb.sh && read -t2 -n1 -ep "update bbbb.sh? " ba && source /etc/bbbb.sh'
 alias cccc='sudo micro /etc/cccc.sh && read -t2 -n1 -ep "update cccc.sh? " ba && source /etc/cccc.sh'
-alias uu='sudo apt update && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo snap refresh && jp2a /boot/grub/tard.jpg|pv --rate-limit=2222 --quiet; sleep 2 && reboot'
+alias uu='sudo apt update && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo snap refresh && jp2a /boot/grub/tard.jpg|pv --rate-limit=2222 --quiet;'
+alias rb='sudo wall "gg"; sleep 1; sudo systemctl reboot;'
 ##
 alias www="www-browser"
 alias aa="apropos"
@@ -118,7 +120,6 @@ psp read -ep "$c2 CLONE: https://github.com/12ants/" -i "" "clone";
 git clone https://github.com/12ants/$clone; cd $clone 2>/dev/null; echo -e "\n\t $cyan$bold> $pink$PWD/$cyan <$re\n\t * * * *\n"; ls -a; echo;echo; '
 # alias ww='ee;ee "$cyan";w;ee;ee "$blue"; ps all;ee "$re $PWD"'
 alias ww='echo;echo "  LAST LOGINS";echo;sudo lastb -axdwn 14;echo;echo "       = = = = = = == ";echo; sudo last -wxdFan14;echo;landscape-sysinfo; echo;echo "    = = = = = =   ";echo;'
-alias rb='sudo wall "gg"; sleep 1; sudo systemctl reboot'
 alias gt='read -n1 -ep "  $c2  g/t  $(systemctl get-default)  " "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
 alias xxxx='startx'
 alias cc=cds
