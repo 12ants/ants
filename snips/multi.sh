@@ -1,4 +1,4 @@
-
+nt
 #!/bin/bash
 ## MULTISELECT BASH-MENU
 ##
@@ -12,8 +12,8 @@ tput cup 2 1 ed; echo "
   ------------ $green hello $re ---------------------
   ------------------------------------------ 
   --$dim Choose:  [$re Up / Down$dim ]$re
-  --$dim Select:  [$re Space$dim ]$re
-  --$dim Confirm: [$re Enter$dim ]$re
+  --$dim Select:  [$re Enter$dim ]$re
+  --$dim Confirm: [$re Space$dim ]$re
   ------------------------------------------
   -- Choose multiple options: --------------
   ------------------------------------------
@@ -119,7 +119,7 @@ function multiselect {
 ##
 ##
 opts="opts1.sh"; echo "">$opts;
-ops=( "o1" "o2"  "o3" "o4" "o5" "o6" "o7" "o8" )
+ops=($(ls ./etc))
 pre=false
 #result=(  "res1" "res2" "res3")
 multiselect result ops pre
