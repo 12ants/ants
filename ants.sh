@@ -9,6 +9,7 @@ echo hello
 ############# 12ants.github.com
 #
 #
+tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re ";
 alias "ee"='echo '
 export bold=$(tput bold) dim=$(tput dim) so=$(tput smso) noso=$(tput rmso) rev=$(tput rev) re=$(tput sgr0) normal=$(tput sgr0) \
 redb=$(tput setab 1) greenb=$(tput setab 2) yellowb=$(tput setab 3) blueb=$(tput setab 4) purpleb=$(tput setab 5) cyanb=$(tput setab 6) \
@@ -55,18 +56,12 @@ echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ants;
 # apt update|lolcat -F .01 -s 111 -p 11 -d 22; apt upgrade -y --install-recommends|lolcat -F .001 -s 111 -p 11 -d 22;
 ## 
 pro='apt update';
-pro;
-
-pro='sleep 2';
-
-pro;
-sleep 1;
+pro; sleep 1;
 ##
 ##
 pro='apt upgrade -y'; pro; sleep 1;
 ##
 ##
-tput cup 0; tput ed; echo -e "\n\n\t$blink ¯\(ツ)/¯$re ";
 #
 # Welcome to ...
 #
@@ -85,31 +80,12 @@ mkdir $gh -p -m 775
 chown $SUDO_USER: $gh
 cd $gh
 mkdir ants -p -m 775
-cd ants
-##
-## LOAD ANIMATION
-pro='git stash'
-pro
-##
-####
-## LOAD ANIMATION
-pro='git pull'
-pro
-##
-##
-
-cd ..
-##
-sleep 1
-####
-## LOAD ANIMATION
-pro='git clone https://github.com/12ants/ants'
-pro
-sleep 1
-##
-##
 cd ants;
-read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
+pro='git stash'; pro; sleep 1;
+pro='git pull'; pro; sleep 1;
+cd ..; sleep 1;
+pro='git clone https://github.com/12ants/ants'; pro; sleep 1;
+cd ants; read -n1 -ep "$ll""$c2"" Install Improvments? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
 if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope"; return 2>/dev/null; else echo "$ll$c2 OK";
 ##
 tput cuu 18 ed; tput dim;
@@ -121,19 +97,17 @@ sudo cp sh/etc_bash.sh /etc/bash.bashrc -bv
 sudo cp sh/ssss.sh /bin/ssss -bv
 echo "$re"; sleep 1;
 ##
-pro='chmod 775 /bin/ssss';
-pro;
+pro='chmod 775 /bin/ssss'; pro; sleep 1;
 ##
 ##
-pro='chown "$SUDO_USER": /etc/*.sh';
-pro;
+pro='chown "$SUDO_USER": /etc/*.sh'; pro;
 ##
 ##
 pro='chmod 755 /etc/*.sh -v'; pro; sleep 1;
 ##
 fi;
 sleep 1; tput sgr0; 
-echo -e "\n\n\n\n    $ll $c2$blink Bash is now better! \n\n\n\n\n\n";
-
+echo -e "\n\n\n\n    $ll $c2$blink Bash is now better! \n\n\n\n\n\n"; sleep 2;
+source multi.sh
 
 
