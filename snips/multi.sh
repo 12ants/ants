@@ -1,4 +1,3 @@
-nt
 #!/bin/bash
 ## MULTISELECT BASH-MENU
 ##
