@@ -20,12 +20,26 @@ export dddd=$(echo -e "$pink  --------------------------------$re ") c2="$cyan -
 ants="$_"
 ##
 ## LOADING-ANIMATION
+#pro() {
+#$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2; PROC_ID=$!; while kill -0 "$PROC_ID"&>/dev/null; 
+#do for X in "[        ]" "[$green=$re       ]" "[$yellow==$re      ]" "[$red===$re     ]" "[=$pink===    $re]"  "[ ==$cyan==   $re]" \
+#"[   =$white===$re ]" "[     =$blue==$re]" "[      "$rev"=$re$green=$re]" "[       "$red"="$re"]" "[        ]" "[        ]" "[        ]" "[        ]"; 
+#do echo -e "Executing $rev$pro$re"$c2" $X"; tput cuu1; sleep 0.08; done; echo -ne "oo"; done 
+#echo -ne " [  "$green"DONE"$re"  ] \n\n\n\n\n";
+#}
+###########
+## pro - task loaading animation
 pro() {
-$pro &>/dev/null & disown; tput cuu 8; tput ed; tput cud 2; PROC_ID=$!; while kill -0 "$PROC_ID"&>/dev/null; 
-do for X in "[        ]" "[$green=$re       ]" "[$yellow==$re      ]" "[$red===$re     ]" "[=$pink===    $re]"  "[ ==$cyan==   $re]" \
-"[   =$white===$re ]" "[     =$blue==$re]" "[      "$rev"=$re$green=$re]" "[       "$red"="$re"]" "[        ]" "[        ]" "[        ]" "[        ]"; 
-do echo -e "Executing $rev$pro$re"$c2" $X"; tput cuu1; sleep 0.08; done; echo -ne "oo"; done 
-echo -ne " [  "$green"DONE"$re"  ] \n\n\n\n\n";
+echo -e "\n\n\n\n\n\n\n\n\n\n\n\n"
+alias tf='tput setaf $((RANDOM%16));'
+alias tb='tput setab $((RANDOM%16));'
+c2=""$cyan"--$re"; tput civis;
+$pro &>/dev/null & disown; tput cuu 8; tput ed; PROC_ID=$!; while kill -0 "$PROC_ID"&>/dev/null; 
+do for X in "[        ]" "[$(tf)=$re       ]" "[$(tf)=$(tf)=$re      ]" "[$(tf)=$(tf)=$(tf)=$re     ]" "[$(tf)=$(tf)=$(tf)=$(tf)=    $re]"  \
+"[ $(tf)=$(tf)=$(tf)=$(tf)=   $re]" "[  $(tf)=$(tf)=$(tf)=$(tf)=$re  ]" "[   $(tf)=$(tf)=$(tf)=$(tf)= $re]" "[    $(tf)=$(tf)=$(tf)=$(tf)=$re]" \
+"[     "$(tf)"=$(tf)=$(tf)=$re]" "[      "$(tf)"=$(tf)="$re"]" "[       $(tf)=]" "[        ]" "[        ]" "[        ]"; 
+do echo -e "   $dim[$(tb)  $re$dim]$re "$c2" Executing $rev $pro $re $c2$c2$c2$c2$c2"; tput cuu1; echo -e "\t\t\t\t\t $X"; tput cuu1; sleep 0.08; done; done;
+echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re \n\n\n\n\n"; tput cnorm;
 }
 ##
 ##
