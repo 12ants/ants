@@ -81,7 +81,7 @@ tput cup 6 $((COLUMNS - 28)) el; tput sgr0 rc;'
 ############################################
 ## MISC_STUFF ##############################
 alias fill='seq -s _ 1 2222'
-alias tputhelp='pager --omit-header /ants/tput_help.sh'
+alias tputhelp='(wget -O- raw.githubusercontent.com/12ants/ants/main/snips/tputhelp.txt)|(pager --omit-header)'
 ############################################
 ## RANDOM_STUFF ############################
 # export rnd1="(($RANDOM%99))"
