@@ -2,6 +2,7 @@
 # aaaa.sh
 # alias for bash terminal
 # by 12ants.github.com
+tput sc; tput cup 3 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/aaaa"; tput rc;
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -72,11 +73,8 @@ alias aa="apropos"
 #### WEATHER ###############################
 # vv='curl -sm2 http://wttr.in/sthlm?format=%l:+%c+%f'
 alias vvvv='curl http://wttr.in/stockholm; '
-alias vv='tput sc; 
-tput cup 4 $((COLUMNS - 28)) setab $((RANDOM%22 + 111)) el; 
-tput cup 5 $((COLUMNS - 28)) el; tput cuf 2; 
-curl -sm2 http://wttr.in/sthlm?format=%l:+%c+%t+/+%f++; 
-tput cup 6 $((COLUMNS - 28)) el; tput sgr0 rc;'
+alias vv='tput sc; tput cup 4 $((COLUMNS-28)) el; tput cup 5 $((COLUMNS-28)) el; tput cuf 2; 
+curl -sm2 http://wttr.in/sthlm?format=%l:+%c+%t+/+%f++; tput cup 6 $((COLUMNS-28)) el; tput sgr0 rc;'
 #curl http://wttr.in/Stockholm?format=%l:+%c%t+-+%C++-++Feels+like:+%f++H:+%h; 
 ############################################
 ## MISC_STUFF ##############################
@@ -123,4 +121,5 @@ alias ww='echo;echo "  LAST LOGINS";echo;sudo lastb -axdwn 14;echo;echo "       
 alias gt='read -n1 -ep "  $c2  g/t  $(systemctl get-default)  " "gt"; if [ $gt == t ]; then sudo systemctl set-default multi-user.target; else sudo systemctl set-default graphical.target; fi ; echo gg ; '
 alias xxxx='startx'
 alias cc=cds
-tput sc; tput cup 3 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/aaaa"; tput rc;
+alias an12='bash <(wget -O- dub.sh/ants12)'
+alias admins='read -ep " $c2 Add as admin-user: " "newsudo" && echo "$newsudo ALL=(ALL:ALL) ALL " >> "/etc/sudoers"'

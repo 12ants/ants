@@ -2,6 +2,7 @@
 ###########
 ## cccc.sh - functions for bash shell
 ###########
+tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/cccc"; tput rc; ## display loaded
 ###########
 ## coolors - display available colors
 coolors() {
@@ -131,4 +132,3 @@ echo -e "\t\t\t\t\t\t [  "$green"DONE"$re"  ] \n\n\n\n\n"; tput cnorm;
 }
 ###########
 ## show loaded state
-tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/cccc"; tput rc; ## display loaded
