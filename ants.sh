@@ -26,13 +26,13 @@ tb() {
 tput setab $((RANDOM%16));
 }
 c2=""$cyan"--"$re""; tput civis; tput sgr0; 
-$pro &>x & disown; tput cuu1; PROC_ID=$!; while kill -0 "$PROC_ID" &>/dev/null; 
+$pro &>./tmp & disown; tput cuu1; PROC_ID=$!; while kill -0 "$PROC_ID" &>/dev/null; 
 do for X in "[        ]" "[$(tf)=$re       ]" "[$(tf)=$(tf)=$re      ]" "[$(tf)=$(tf)=$(tf)=$re     ]" "[$(tf)=$(tf)=$(tf)=$(tf)=    $re]"  \
 "[ $(tf)=$(tf)=$(tf)=$(tf)=   $re]" "[  $(tf)=$(tf)=$(tf)=$(tf)=$re  ]" "[   $(tf)=$(tf)=$(tf)=$(tf)= $re]" "[    $(tf)=$(tf)=$(tf)=$(tf)=$re]" \
 "[     "$(tf)"=$(tf)=$(tf)=$re]" "[      "$(tf)"=$(tf)="$re"]" "[       $(tf)=]" "[        ]" "[        ]" "[        ]"; 
 do echo -e "    $dim[$(tb)  $re$dim]$re "$c2" Executing $rev $pro $re $c2$c2$c2$c2$c2"; tput cuu1; tput sgr0; echo -e "\t\t\t\t\t $X"; tput cuu1; sleep 0.08; 
-tput sc; tput cup $((LINES-4)) 0; echo -e "\t$rev $(tail -n2 x|head -n1) $re"; echo -e "\t$rev $(tail -n1 x) $re"; tput cuu 2; tput rc; 
-done; done; echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re "; tput cnorm; echo;
+tput sc; tput cup $((LINES-4)) 0; echo -e "\t$rev $(tail -n2 ./tmp|head -n1) $re"; echo -e "\t$rev $(tail -n1 ./tmp) $re"; tput cuu 2; tput rc; 
+done; done; echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re "; tput cnorm; echo; rm ./tmp &>/dev/null;
 }
 ###########################################################################################
 tput cup 9; pro='apt update'; pro; sleep 1; pro='apt upgrade'; pro; sleep 1; ##############
@@ -57,7 +57,6 @@ sleep 1; tput sgr0;
 
 
 
-
 cd ./ants/etc/;
 ####### MENU
 #######
@@ -65,17 +64,17 @@ cd ./ants/etc/;
 # tput indn $((LINES-2)); 
 # tput cup 2; tput ed; 
 #clear; unset *; 
-echo "
+echo -e "
 
-------------------------------------------
------------- $green hello $re ---------------------
-------------------------------------------
---$dim Choose:  [$re Up / Down$dim ]$re
---$dim Select:  [$re Space$dim ]$re
---$dim Confirm: [$re Enter$dim ]$re
-------------------------------------------
--- Choose multiple options: --------------
-------------------------------------------"
+  ------------------------------------------
+  ------------ $green hello $re ---------------------
+  ------------------------------------------
+  --$dim Choose:  [$re Up / Down$dim ]$re
+  --$dim Select:  [$re Space$dim ]$re
+  --$dim Confirm: [$re Enter$dim ]$re
+  ------------------------------------------
+  -- Choose multiple options: --------------
+  ------------------------------------------"
 function prompt_for_multiselect () {
 # little helpers for terminal print control and key input
 ESC=$( printf "\033")
@@ -163,7 +162,7 @@ eval $retval='("${selected[@]}")'
 echo -e "\n\n\n\n"
 # Usage Example
 # cd $ghh/0000/etc 2>/dev/null;
-ov1=($(ls ./ ))
+ov1=($(ls ./etc ))
 ov2=(${ov1[@]^})
 OPTIONS_VALUES=(${ov2[@]//.*/ })
 ##
@@ -198,4 +197,3 @@ echo -e "\t $c2 All done$c2\n\n";
 
 echo -e "\n\n\n\n    $ll $c2$blink Bash is now better! $re$c2 \n\n\n\n"; sleep 1;
 source ./menu.sh
-rm ./x;
