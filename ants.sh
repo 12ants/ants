@@ -3,7 +3,7 @@
 ########### 
 ## About: antsinstaller
 ############# 12ants.github.com
-tput cup 0; tput ed; echo -e "\n\n\t\t$blink ¯\(ツ)/¯$re ";
+tput cup 0; tput ed; echo -e "\n\n\t\t$(tput blink) ¯\(ツ)/¯$(tput sgr0) ";
 alias "ee"='echo ';
 export bold=$(tput bold) dim=$(tput dim) so=$(tput smso) noso=$(tput rmso) rev=$(tput rev) re=$(tput sgr0) normal=$(tput sgr0) \
 redb=$(tput setab 1) greenb=$(tput setab 2) yellowb=$(tput setab 3) blueb=$(tput setab 4) purpleb=$(tput setab 5) cyanb=$(tput setab 6) \
@@ -15,7 +15,7 @@ export dddd=$(echo -e ""$pink"--------------------------------$re") c2=""$cyan"-
 if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try command: [ sudo -s ] \n\n " 1>&2; 
 read -ep "$ll K" "k7"; exit 0 ; fi;
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf 2>/dev/null;
-echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-installer; echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ants;
+echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/; echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
 ###########
 ## pro - task loading animation
 pro() {
@@ -40,9 +40,9 @@ tput cup 9; pro='apt update'; pro; sleep 1; pro='apt upgrade'; pro; sleep 1; ###
 echo -e "\t $dddd\n\t Welcome to$cyan 12ants$re bash-improver! \n\t $dddd"; ###############
 ## Proceed ... 			###################################################################
 read -n1 -ep "$ll""$c2"" Do you wish to proceed? "$dim"["$re$bold"Y"$dim"/"$re$bold"n"$re$dim"] $re" "yn"; 
-if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope";exit 1; else echo "$ll$c2 OK"; fi ; ####
+if [ "$yn" != "${yn#[Nn]}" ]; then echo "$c2 nope";exit 0; else echo "$ll$c2 OK"; fi ; ####
 ## Github folder... 	###################################################################
-read -ep "$ll$c2 Folder for$cyan$bold Github? $re" -i "$PWD/gh/" "gh"; ####################
+read -ep "$ll$c2 Folder for$cyan$bold Github? $re" -i "$PWD/gh/" "gh"; export gh="$gh"; ####
 mkdir $gh -p -m 775; chown $SUDO_USER: $gh; cd $gh; mkdir ants -p -m 775; #################
 cd $gh/ants; echo;echo; #######################################################################
 pro='git stash'; pro; sleep 1; pro='git pull'; pro; sleep 1; cd ..; sleep 1; echo -ne " $re ";
@@ -54,27 +54,26 @@ sudo cp sh/etc_profile.sh /etc/profile -bv; sudo cp sh/etc_bash.sh /etc/bash.bas
 echo " $re "; sleep 1; pro='chmod 775 /bin/ssss'; pro; sleep 1; pro="chown "$SUDO_USER": /etc/*.sh"; pro; 
 pro='chmod 755 /etc/*.sh -v'; pro; sleep 1; fi;
 sleep 1; tput sgr0; 
-
-
-
-cd ./ants/etc/;
+#######
+#######
+#######
+cd /$gh/ants/etc/;
 ####### MENU
 #######
 #!/bin/bash
 # tput indn $((LINES-2)); 
 # tput cup 2; tput ed; 
 #clear; unset *; 
-echo -e "
-
-  ------------------------------------------
-  ------------ $green hello $re ---------------------
-  ------------------------------------------
-  --$dim Choose:  [$re Up / Down$dim ]$re
-  --$dim Select:  [$re Space$dim ]$re
-  --$dim Confirm: [$re Enter$dim ]$re
-  ------------------------------------------
-  -- Choose multiple options: --------------
-  ------------------------------------------"
+echo -e "\n\n\n\n\n\n\n\n
+\t ------------------------------------------
+\t ------------ $green hello $re ---------------------
+\t ------------------------------------------
+\t --$dim Choose:  [$re Up / Down$dim ]$re
+\t --$dim Select:  [$re Space$dim ]$re
+\t --$dim Confirm: [$re Enter$dim ]$re
+\t ------------------------------------------
+\t -- Choose multiple options: --------------
+\t ------------------------------------------"
 function prompt_for_multiselect () {
 # little helpers for terminal print control and key input
 ESC=$( printf "\033")
@@ -162,7 +161,7 @@ eval $retval='("${selected[@]}")'
 echo -e "\n\n\n\n"
 # Usage Example
 # cd $ghh/0000/etc 2>/dev/null;
-ov1=($(ls ./etc ))
+ov1=($(ls $gh/ants/etc))
 ov2=(${ov1[@]^})
 OPTIONS_VALUES=(${ov2[@]//.*/ })
 ##
@@ -190,10 +189,9 @@ done
 for i in "${CHECKED[@],,}";
 do
 echo -e "\n\t $c2 Installing $i \n"; sleep 1;
-bash "$i.sh"; echo -e "\n\t $c2 All done$c2 \n";
+bash "$gh/ants/etc/"$i".sh"; echo -e "\n\t $c2 All done$c2 \n";
 done
 echo -e "\t $c2 All done$c2\n\n";
 ########################################
-
 echo -e "\n\n\n\n    $ll $c2$blink Bash is now better! $re$c2 \n\n\n\n"; sleep 1;
 source ./menu.sh
