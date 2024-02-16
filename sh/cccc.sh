@@ -2,7 +2,7 @@
 ###########
 ## cccc.sh - functions for bash shell
 ###########
-tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/cccc"; tput rc; ## display loaded
+tput sc; tput cup 8 $((COLUMNS-28)); echo -en "loaded $(tput setaf 8)/etc/cccc"; tput rc; ## display loaded
 ###########
 ## coolors - display available colors
 coolors() {
@@ -100,14 +100,12 @@ sudo chmod -u+rwx $HOME -Rc; ls -aplhtr --group-directories-first --hyperlink=al
 # sudo chmod +rw $HOME -Rc;
 sudo chmod +rw /etc/*.sh -Rc; 
 fi }
-
 ###########
 ## wotd - word of the day
 wotd() {
 RANDOMWORD=($(cat /usr/share/dict/words))
 echo ${RANDOMWORD[$((RANDOM%${#RANDOMWORD[@]}))]}
 }
-
 ###########
 ## loginscreen - change default login screen
 loginscreen() {

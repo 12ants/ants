@@ -1,9 +1,9 @@
 #!/bin/bash
-[ -z "$PS1" ] && return
 # System-wide .bashrc file for interactive bash(1) shells.
 # To enable the settings / commands in this file for login shells as well,
 # this file has to be sourced in /etc/profile.
 # If not running interactively, don't do anything
+#[ -z "$PS1" ] && return
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -18,13 +18,13 @@ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 # Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    ;;
-*)
-    ;;
-esac
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+#    ;;
+#*)
+#    ;;
+#esac
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -65,5 +65,29 @@ fi
 ##
 if [ -f ~/.profile ]; then mv ~/.profile ~/.profile_backup; fi;
 if [ -f ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc_backup; fi;
-tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(tput setaf 5)/etc/bash.bashrc"; tput rc;
-source /etc/aaaa.sh; source /etc/cccc.sh; source /etc/bbbb.sh; 
+##
+## ants AAAA
+if [ -f /etc/aaaa.sh ]; then source /etc/aaaa.sh; 
+else read -n1 -ep "dl aaaa.sh? y/n" dlaa; 
+if [ $dlaa == y ]; 
+then wget -O ants.sh dub.sh/ants12; bash ants.sh; 
+else echo gg; 
+fi; 
+fi;
+## ants BBBB
+if [ -f /etc/bbbb.sh ]; then source /etc/bbbb.sh; 
+else read -n1 -ep "dl bbbb.sh? y/n" dlaa; 
+if [ $dlaa == y ]; 
+then wget -O ants.sh dub.sh/ants12; bash ants.sh; 
+else echo gg; 
+fi; 
+fi;
+## ants BBBB
+if [ -f /etc/cccc.sh ]; then source /etc/cccc.sh; 
+else read -n1 -ep "dl cccc.sh? y/n" dlaa; 
+if [ $dlaa == y ]; 
+then wget -O ants.sh dub.sh/ants12; bash ants.sh; 
+else echo gg; 
+fi; 
+fi;
+tput sc; tput cup 2 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/bash.bashrc"; tput rc;

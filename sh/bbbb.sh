@@ -3,7 +3,7 @@
 #########################
 ## -- CUSTOM LINUX --  ##
 #########################
-tput sc; tput cup 4 $((COLUMNS-28)); echo -en "loaded $(rrf)/etc/bbbb"; tput rc;
+tput sc; tput cup 7 $((COLUMNS-28)); echo -en "loaded $(tput setaf 7)/etc/bbbb"; tput rc;
 export EDITOR='micro'; export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'  
 alias ee="echo ";
 export bold=$(tput bold) dim=$(tput dim) so=$(tput smso) noso=$(tput rmso) rev=$(tput rev) re=$(tput sgr0) normal=$(tput sgr0) \
