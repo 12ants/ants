@@ -15,7 +15,8 @@ export dddd=$(echo -e ""$pink"--------------------------------$re") c2=""$cyan"-
 if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try command: [ sudo -s ] \n\n " 1>&2; 
 read -ep "$ll K" "k7"; exit 0 ; fi;
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf 2>/dev/null;
-echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/; echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
+# echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/; 
+echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
 ############################################################
 ## pro - task loading animation ############################
 ############################################################
