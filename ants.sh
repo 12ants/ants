@@ -16,8 +16,9 @@ if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try
 read -ep "$ll K" "k7"; exit 0 ; fi;
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf 2>/dev/null;
 echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/; echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
-###########
-## pro - task loading animation
+############################################################
+## pro - task loading animation ############################
+############################################################
 pro() {
 tf() {
 tput setaf $((RANDOM%16));
@@ -34,6 +35,8 @@ do echo -e "    $dim[$(tb)  $re$dim]$re "$c2" Executing $rev $pro $re $c2$c2$c2$
 tput sc; tput cup $((LINES-4)) 0; echo -e "\t$rev $(tail -n2 ./tmp|head -n1) $re"; echo -e "\t$rev $(tail -n1 ./tmp) $re"; tput cuu 2; tput rc; 
 done; done; echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re "; tput cnorm; echo; rm ./tmp &>/dev/null;
 }
+###########################################################################################
+## pro - done #############################################################################
 ###########################################################################################
 tput cup 9; pro='apt update'; pro; sleep 1; pro='apt upgrade'; pro; sleep 1; ##############
 ## Welcome to ... 		###################################################################
@@ -62,9 +65,9 @@ cd /$gh/ants/etc/;
 #######
 #!/bin/bash
 # tput indn $((LINES-2)); 
-# tput cup 2; tput ed; 
+tput cup 2; tput ed; 
 #clear; unset *; 
-echo -e "\n\n\n\n\n\n\n\n
+echo -e "\n\n
 \t ------------------------------------------
 \t ------------ $green hello $re ---------------------
 \t ------------------------------------------

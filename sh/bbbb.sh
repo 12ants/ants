@@ -17,10 +17,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 ##########################
 #### Welcome screen ######
 ##########################
-echo; sup
-echo; greet
-fakta
-ee;fortune|tr  -s "\t\n" "  "|lolcat -p 22; ee;ee; ipa
+echo; echo; greet
+fortune|tr  -s "\t\n" "  "|lolcat -p 22; ee;ee; ipa
 if [ "$(id -u)" -eq 0 ]; then us='#'; else us='$'; fi;
 ## bash prompt
 #PS1='\$[\[\e[9$(rr2);$(rr1)m\]\t\[\e[0m\]][\[\e[9$(rr1)$(rr2)m\]$(ipnet)\[\e[0m\]][\[\e[$(rr2)$(rr1)m\]\u\[\e[0m\]][\[\e[9$(rr1)m\]$(pwd)\[\e[0m\]] \[\e[97;1m\]>\[\e[37;4m\]_\n\[\e[0m\]'

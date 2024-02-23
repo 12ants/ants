@@ -5,7 +5,7 @@ if [ $UID != 0 ] ; then echo -e " \n\n\t This script must be run as root... try 
 sudo apt install -y perl sed tmux; 
 #wget https://github.com/12ants/0000/raw/main/etc/.tmux.conf
 #wget https://github.com/12ants/0000/raw/main/etc/.tmux.conf.local
-cd $ghh/0000/etc; 
+#cd $ghh/0000/etc; 
 cp ../conf/.tmux.conf /root/; 
 cp ../conf/.tmux.conf.local /root/;
 cp ../conf/.tmux.conf /home/$SUDO_USER/; 
