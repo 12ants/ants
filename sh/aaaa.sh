@@ -2,7 +2,7 @@
 # aaaa.sh
 # alias for bash terminal
 # by 12ants.github.com
-tput sc; tput cup 36 $((COLUMNS-28)); echo -en "loaded $(tput setaf 6)/etc/aaaa"; tput rc;
+## tput sc; tput cup 36 $((COLUMNS-28)); echo -en "loaded $(tput setaf 6)/etc/aaaa"; tput rc;
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

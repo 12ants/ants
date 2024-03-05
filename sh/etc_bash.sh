@@ -65,5 +65,5 @@ fi
 ##
 if [ -f ~/.profile ]; then mv ~/.profile ~/.profile_backup; fi;
 if [ -f ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc_backup; fi;
-tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(tput setaf 5)/etc/bash.bashrc"; tput rc;
+## tput sc; tput cup 5 $((COLUMNS-28)); echo -en "loaded $(tput setaf 5)/etc/bash.bashrc"; tput rc;
 source /etc/aaaa.sh; source /etc/cccc.sh; source /etc/bbbb.sh; 

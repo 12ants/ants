@@ -20,26 +20,41 @@ echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
 ############################################################
 ## pro - task loading animation ############################
 ############################################################
+
 pro() {
-tf() {
-tput setaf $((RANDOM%16));
-}
-tb() {
-tput setab $((RANDOM%16));
-}
-c2=""$cyan"--"$re""; tput civis; tput sgr0; 
-$pro &>./tmp & disown; tput cuu1; PROC_ID=$!; while kill -0 "$PROC_ID" &>/dev/null; 
+alias tf='tput setaf $((RANDOM%16));'; alias tb='tput setab $((RANDOM%16));'; c2=""$cyan"--"$re""; tput civis; tput sgr0; 
+$1 $2 $3 $4 &>./tmp & disown; tput cuu1; PROC_ID=$!; while kill -0 "$PROC_ID" &>/dev/null; 
 do for X in "[        ]" "[$(tf)=$re       ]" "[$(tf)=$(tf)=$re      ]" "[$(tf)=$(tf)=$(tf)=$re     ]" "[$(tf)=$(tf)=$(tf)=$(tf)=    $re]"  \
 "[ $(tf)=$(tf)=$(tf)=$(tf)=   $re]" "[  $(tf)=$(tf)=$(tf)=$(tf)=$re  ]" "[   $(tf)=$(tf)=$(tf)=$(tf)= $re]" "[    $(tf)=$(tf)=$(tf)=$(tf)=$re]" \
 "[     "$(tf)"=$(tf)=$(tf)=$re]" "[      "$(tf)"=$(tf)="$re"]" "[       $(tf)=]" "[        ]" "[        ]" "[        ]"; 
-do echo -e "    $dim[$(tb)  $re$dim]$re "$c2" Executing $rev $pro $re $c2$c2$c2$c2$c2"; tput cuu1; tput sgr0; echo -e "\t\t\t\t\t $X"; tput cuu1; sleep 0.08; 
-tput sc; tput cup $((LINES-4)) 0; echo -e "\t$rev $(tail -n2 ./tmp|head -n1) $re"; echo -e "\t$rev $(tail -n1 ./tmp) $re"; tput cuu 2; tput rc; 
-done; done; echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re "; tput cnorm; echo; rm ./tmp &>/dev/null;
+do echo -e "    $dim[$(tb)  $re$dim]$re "$c2" Executing $rev $1 $2 $3 $4 $re $c2$c2$c2$c2$c2"; tput cuu1; tput sgr0; echo -e "\t\t\t\t\t $X"; tput cuu1; sleep 0.1; 
+tput sc; tput cup $((LINES-4)) 0; echo -e "\t$darkblue $(tail -n2 ./tmp|head -n1) $re"; echo -e "\t$yellow $(tail -n1 ./tmp) $re"; tput cuu 2; tput rc; 
+done; done; echo -e "\t\t\t\t\t"$dim" [$re  "$green"DONE"$re" $dim ]$re "; tput cnorm; rm ./tmp &>/dev/null;
 }
+
+#### Update apt ############
+############################
+prompt='Update apt?'; 
+############################
+tput indn 28; tput cuu 22; 
+echo -en "\t $re$c2 $prompt $white$dim["$re$bold"Y$dim/"$re$bold"n$dim]$re "; read -n1 yn; if [ "$yn" == "${yn#[Nn]}" ]; then echo -e "\t $c2 OK"; 
+pro sudo apt update; sleep 0.5; 
+else echo "nope"; fi;
+#### Upgrade apt ############
+############################
+prompt='Upgrade apt?'; 
+############################
+echo -en "\t $re$c2 $prompt $white$dim["$re$bold"Y$dim/"$re$bold"n$dim]$re "; read -n1 yn; if [ "$yn" == "${yn#[Nn]}" ]; then echo -e "\t $c2 OK"; 
+pro sudo apt update; pro sudo apt -y upgrade; pro sudo apt -y autoremove; sleep 0.5; 
+else echo "nope"; fi;
+#### DONE ####
+##
+##
+##
 ###########################################################################################
 ## pro - done #############################################################################
 ###########################################################################################
-tput cup 9; pro='apt update'; pro; sleep 1; pro='apt upgrade'; pro; sleep 1; ##############
+
 ## Welcome to ... 		###################################################################
 echo -e "\t $dddd\n\t Welcome to$cyan 12ants$re bash-improver! \n\t $dddd"; ###############
 ## Proceed ... 			###################################################################

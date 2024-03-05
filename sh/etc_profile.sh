@@ -23,7 +23,7 @@
 #. $i
 #fi
 #done
-tput sc; tput cup 4 $((COLUMNS-48)); times; echo -en "loaded /etc/profile"; tput rc;
+## tput sc; tput cup 4 $((COLUMNS-48)); times; echo -en "loaded /etc/profile"; tput rc;
 unset *
 source /etc/bash.bashrc
 # source /etc/aaaa.sh
