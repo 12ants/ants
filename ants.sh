@@ -13,10 +13,10 @@ left2=$(tput cub 2) up1=$(tput cuu1)
 export dddd=$(echo -e ""$pink"--------------------------------$re") c2=""$cyan"--"$re""; ants="$_"; ll=$(echo -e " \t "); 
 ###########
 if [ $UID != 0 ]; then echo -e " \n\n $ll This script must be run as root... try command: [ sudo -s ] \n\n " 1>&2; 
-read -ep "$ll K" "k7"; exit 0 ; fi;
+read -ep "$ll K" "k7"; echo ok; fi;
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf 2>/dev/null;
 # echo "%sudo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/; 
-echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants;
+echo -e "$SUDO_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/ants 2>x;
 ############################################################
 ## pro - task loading animation ############################
 ############################################################
